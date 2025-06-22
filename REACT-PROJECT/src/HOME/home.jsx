@@ -401,7 +401,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="pt-5">
+    <div className="mt-10 md:mt-5">
       <div className="home-container text-center">
         <h1 className="text-xl">
           🚀Launch Your Tech Career with <br />{" "}

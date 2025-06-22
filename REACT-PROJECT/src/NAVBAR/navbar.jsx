@@ -40,7 +40,7 @@ const Navbar = () => {
           <Link to="/login">Login</Link>
         </div>
         {/* FOR MOBILE */}
-        <div className="flex md:hidden w-50 pr-5 navbar-end">
+        <div className="flex md:hidden w-full navbar-end">
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}

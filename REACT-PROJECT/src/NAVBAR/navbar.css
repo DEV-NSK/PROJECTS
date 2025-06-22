@@ -25,18 +25,27 @@
 }
 
 #mobile-navbar-links {
-    width: 100%;
-    gap: 1rem !important;
-    margin-top: 1rem;
+    width: 200%;
+    gap: 0.5rem !important;
+    margin-top: 0.5rem;
     border-radius: 0;
     background-color: rgb(29, 35, 42);
+    border: 1px solid white;
+    padding: 0.5rem;
 }
 
 #mobile-navbar-links > li {
     width: 100%;
-    text-align: start;
+    text-align: center;
     line-height: 0.5;
     padding: 0.3rem;
+    text-decoration: none;
+    transition: text-decoration 0.5s linear;
+}
+
+#mobile-navbar-links > li:hover {
+    color: orangered;
+    text-decoration: underline 1.5px white;
 }
 
 #nav-links-effect > a {
@@ -48,6 +57,3 @@
     text-decoration: underline 1.5px orangered;
 }
 
-#mobile-navbar-links > li:hover {
-    color: orangered;
-}

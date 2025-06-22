@@ -3,7 +3,7 @@ const roles = [
         // "Full Stack Developer" role
   "name": "Full Stack Developer",
   "description": "Master frontend, backend, and deployment using the MERN stack.",
-  "skills_required": ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB", "Express"],
+  "skills_required": ["HTML", "CSS", "React", "Node.js", "MongoDB", "Express"],
   "skills_subtopics": {
     "HTML": {
       "explanation": "HTML is the foundation of all web pages, used to structure content.",
@@ -158,7 +158,7 @@ const roles = [
 {
   "name": "Machine Learning Engineer",
   "description": "Build production-ready ML pipelines and deploy models at scale.",
-  "skills_required": ["Python", "ML", "Data Preprocessing", "Model Evaluation", "TensorFlow", "MLOps"],
+  "skills_required": ["Python", "ML", "Data processing", "Model Evaluation", "TensorFlow", "MLOps"],
   "skills_subtopics": {
     "Model Evaluation": {
       "explanation": "Assess the performance of ML models using metrics.",
@@ -278,7 +278,7 @@ const roles = [
 {
   "name": "Blockchain Developer",
   "description": "Develop decentralized apps (dApps) and smart contracts on blockchain networks.",
-  "skills_required": ["Solidity", "Ethereum", "Smart Contracts", "Web3.js", "Cryptography", "Truffle"],
+  "skills_required": ["Solidity", "Ethereum", "Smart .Con", "Web3.js", "Cryptography", "Truffle"],
   "skills_subtopics": {
     "Solidity": {
       "explanation": "Programming language for writing smart contracts on Ethereum.",
@@ -301,7 +301,7 @@ const roles = [
 {
   "name": "Frontend Developer",
   "description": "Build user-friendly web interfaces using modern frontend technologies.",
-  "skills_required": ["HTML", "CSS", "JavaScript", "React", "TypeScript", "Responsive Design"],
+  "skills_required": ["HTML", "CSS", "JavaScript", "React", "TypeScript", "Resp. Design"],
   "skills_subtopics": {
     "TypeScript": {
       "explanation": "TypeScript is a typed superset of JavaScript for large-scale apps.",
@@ -390,7 +390,7 @@ const roles = [
 {
   "name": "Flutter Developer",
   "description": "Develop beautiful cross-platform mobile apps using Dart and Flutter.",
-  "skills_required": ["Dart", "Flutter", "State Management", "APIs", "Firebase", "Animations"],
+  "skills_required": ["Dart", "Flutter", "State .Mng", "APIs", "Firebase", "Animations"],
   "skills_subtopics": {
     "Dart": {
       "explanation": "A client-optimized language for fast apps on any platform.",
@@ -413,7 +413,7 @@ const roles = [
 {
   "name": "React Native Developer",
   "description": "Build cross-platform mobile apps using JavaScript and React Native.",
-  "skills_required": ["JavaScript", "React Native", "APIs", "Redux", "Navigation", "UI Components"],
+  "skills_required": ["JavaScript", "React Native", "APIs", "Redux", "Navigation", "UI Comps"],
   "skills_subtopics": {
     "React Native": {
       "explanation": "A framework for building native apps using React.",
@@ -459,7 +459,7 @@ const roles = [
 {
   "name": "UI/UX Designer",
   "description": "Design intuitive, user-friendly, and attractive interfaces for applications.",
-  "skills_required": ["Figma", "Wireframing", "Prototyping", "User Research", "Design Systems", "Accessibility"],
+  "skills_required": ["Figma", "Wireframing", "Prototyping", "User Research", "Design Sys", "Accessibility"],
   "skills_subtopics": {
     "Figma": {
       "explanation": "A collaborative design tool for interface design and prototyping.",
@@ -528,7 +528,7 @@ const roles = [
 {
   "name": "Web3 Developer",
   "description": "Develop decentralized applications (dApps) using blockchain technologies.",
-  "skills_required": ["Solidity", "Ethereum", "Smart Contracts", "Web3.js", "IPFS", "Hardhat"],
+  "skills_required": ["Solidity", "Ethereum", "Hardhat", "Web3.js", "IPFS", "Smart .Con"],
   "skills_subtopics": {
     "Smart Contracts": {
       "explanation": "Self-executing contracts written on a blockchain.",
@@ -551,7 +551,7 @@ const roles = [
 {
   "name": "Technical Product Manager",
   "description": "Bridge business and technical teams to deliver high-impact software products.",
-  "skills_required": ["Agile", "Scrum", "Product Roadmapping", "JIRA", "Market Research", "User Stories"],
+  "skills_required": ["Agile", "Scrum", "User Stories", "JIRA", "Market Research", "Product mapping"],
   "skills_subtopics": {
     "Agile": {
       "explanation": "Project management methodology focused on iterative development.",
@@ -620,7 +620,7 @@ const roles = [
 {
   "name": "Embedded Systems Developer",
   "description": "Design software for devices with limited computing power (e.g., washing machines, cars).",
-  "skills_required": ["C", "C++", "Microcontrollers", "RTOS", "Assembly", "Embedded Linux"],
+  "skills_required": ["C", "C++", "Microcontrollers", "RTOS", "Assembly", "Emb. Linux"],
   "skills_subtopics": {
     "RTOS": {
       "explanation": "Real-Time Operating System ensures time-bound task execution.",
