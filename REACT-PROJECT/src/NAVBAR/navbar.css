@@ -1,0 +1,53 @@
+.navbar {
+    box-shadow: 0 0 10px rgb(5, 0, 24);
+}
+
+#nav-logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: linear-gradient(135deg,#ff00d2,#fed90f,#00a2ff,#e43d3d,#fed90f,#09f1b8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300% 300%;
+    animation: gradient 2s linear infinite; 
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#mobile-navbar-links {
+    width: 100%;
+    gap: 1rem !important;
+    margin-top: 1rem;
+    border-radius: 0;
+    background-color: rgb(29, 35, 42);
+}
+
+#mobile-navbar-links > li {
+    width: 100%;
+    text-align: start;
+    line-height: 0.5;
+    padding: 0.3rem;
+}
+
+#nav-links-effect > a {
+    text-decoration: none;
+    transition: 0.2s linear;
+}
+
+#nav-links-effect > a:hover {
+    text-decoration: underline 1.5px orangered;
+}
+
+#mobile-navbar-links > li:hover {
+    color: orangered;
+}

@@ -1,0 +1,50 @@
+.card > a:hover {
+    color: orangered;
+}
+
+.card {
+    padding: 3rem;
+    /* text-align: center; */
+    box-shadow: 0 0 10px grey;
+}
+
+#role-marquee {
+    padding: 0.5rem 0;
+}
+
+#brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: linear-gradient(135deg,#ff00d2,#fed90f,#027ac0,#ff0000,#fed90f,#09f1b8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300% 300%;
+    animation: gradient 2s linear infinite; 
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#contact-logo > a > img {
+    border-radius: 50%;
+    width: 50%;
+    transition: 0.5s linear;
+}
+
+#contact-logo > a > img:hover {
+    box-shadow: 0 0 10px white;
+    padding: 0.2rem;
+}
+
+#linkedin {
+    width: 55% !important;
+}
