@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* LAPTOP-SCREEND */
+#home {
+    background-image: url("bg-01.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    min-height: 120vh;
+    height: auto;
+    padding: 5rem;
+}
+#page-one {
+    width: 100%;
+    height: 20vh;
+    text-align: center;
+}
+#page-one > span {
+    border: 2px solid grey;
+    padding: 20px 40px;
+    font-size: 2rem;
+    color: grey;
+}
+#empty {
+    width: 100%;
+    padding-left: 5rem;
+}
+#welcome {
+    width:600px ;
+    background-color: white;
+    padding: 4rem;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+#welcome > h1 {
+    font-size: 3rem;
+    color: rgb(16, 193, 16);
+}
+#welcome > p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+#welcome > p > span {
+    color: blue;
+}
+.home-btn{
+    width: 100%;
+    text-align: end;
+}
+.home-btn > a {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(180, 7, 7);
+    padding: 15px 30px;
+    font-size: 1.8rem;
+}
+.home-btn > a:hover {
+    background-color: red;
+}
+
+/* SERVICES */
+#services {
+    background-image: url("bg-02.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    min-height: 120vh;
+    height: auto;
+}
+#main-div {
+    width: 100%;
+    padding: 0px 5% 0px 50%;
+}
+#services-content {
+    width: 35vw;
+    height: auto;
+    min-height: 120vh;
+    background-color: rgba(255, 255, 255, 0.486);
+    padding: 5rem 2rem 5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+#services-content > h1 {
+    color: rgb(0, 102, 255);
+    font-size: 2.5rem;
+}
+#services-content > p {
+    font-size: 1.4rem;
+    color: grey;
+}
+.logo-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+}
+.logo-info > img {
+    width: 40%;
+}
+.logo-info > p {
+    font-size: 1.2rem;
+    color: rgb(78, 77, 77);
+}
+
+/* GALLERY */
+#gallery-page {
+    background-image: url("bg-03.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    min-height: 120vh;
+    height: auto;
+}
+#gallery {
+    width: 100%;
+    padding: 3rem 6rem 3rem 8rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+#gallery > h1 {
+    color: rgb(90, 88, 88);
+    font-size: 2.5rem;
+}
+#gallery-links {
+    width: 100%;
+    display: flex;
+    column-gap: 3rem;
+}
+#gallery-links > a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: rgb(111, 110, 110);
+    background-color: rgb(252, 250, 250);
+    padding: 10px 15px;
+}
+#gallery-links > a:hover {
+    color: white;
+    background-color: black;
+}
+#cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+}
+#cards > a {
+    width: 100%;
+}
+#cards > a> img {
+    width: 100% !important;
+}
+
+/* FOURTH-PAGE */
+#contact-page {
+    width: 100%;
+    background-image: url("bg-04.jpg");
+    background-position: center;
+    background-size: cover;
+    min-height: 120vh;
+    height: auto;
+}
+#empty-div {
+    width: 100%;
+    padding: 0px 0px 0px 10%;
+}
+#contact-form {
+    width: 35vw;
+    background-color: rgba(255, 255, 255, 0.537);
+    height: auto;
+    min-height: 120vh;
+    padding: 10rem 3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+#contact-form > h1 {
+    color: rgb(0, 76, 255);
+    font-size: 2.5rem;
+}
+#contact-form > p {
+    font-size: 1.3rem;
+    color: grey;
+}
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+form > input {
+    border: 1px solid rgba(128, 128, 128, 0.437);
+    outline: none;
+    padding: 10px;
+    font-size: 1rem;
+    color: grey;
+}
+form > textarea {
+    padding: 1rem;
+    border: 1px solid rgba(128, 128, 128, 0.437);
+    outline: none;
+    font-size: 1rem;
+    color: grey;
+}
+#form-btn {
+    width: 100%;
+    text-align: end;
+}
+#form-btn > input {
+    border: none;
+    outline: none;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(180, 7, 7);
+    padding: 15px 30px;
+    font-size: 1.8rem;
+}
+#form-btn > input:hover {
+    background-color: red;
+}
+
+
+
+/* PHONE SCREEN */
+
+/* TABLET SCREEN */
+/* @media (max-width:769px) {
+    #home {
+        width: 100%;
+        height: 80vh;
+    }
+    #page-one > span {
+        padding: 2rem 4rem;
+        font-size: 3rem;
+    }
+    #empty {
+        width: 100%;
+        padding: 0px;
+    }
+    #welcome {
+        width: 100%;
+        margin: auto;
+        row-gap: 5rem;
+    }
+    /* services */
+    /* #main-div {
+        width: 100%;
+        padding: 0px 10%;
+    }
+    #services-content {
+        width: 100%;
+        padding: 1rem;
+        row-gap: 5rem;
+    }
+    #services-content > h1 {
+        color: rgb(0, 102, 255);
+        font-size: 4rem;
+    }
+    #services-content > p {
+        font-size: 2rem;
+    }
+    .logo-info > img {
+        width: 70%;
+    } 
+    .logo-info > p {
+        font-size: 1.6rem;
+    } */
+    
+    /* GALLERY */
+    /* #gallery {
+        padding: 5rem 2rem;
+        row-gap: 2rem;
+    }
+    #gallery > h1 {
+        color: rgb(90, 88, 88);
+        font-size: 3rem;
+    }
+    #gallery-links {
+        column-gap: 2rem;
+    }
+    #gallery-links > a {
+        font-size: 1.5rem;
+    }
+    #cards {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 20px;
+    }
+    #cards > a> img {
+        width: 100% !important;
+        border-radius: 5px;
+    }
+     */
+    /* FOURTH-PAGE */
+    /* #contact-page {
+        width: 100%;
+        background-image: url("bg-04.jpg");
+        background-position: center;
+        background-size: cover;
+        min-height: 120vh;
+        height: auto;
+    }
+    #empty-div {
+        width: 100%;
+        padding: 0px 10%;
+    }
+    #contact-form {
+        width: 100%;
+        height: auto;
+        min-height: 120vh;
+        padding: 10rem 2rem;
+        row-gap: 4rem;
+    }
+    #contact-form > h1 {
+        font-size: 4rem;
+    }
+    #contact-form > p {
+        font-size: 2rem;
+    }
+    form {
+        width: 100%;
+        row-gap: 3rem;
+    }
+    form > input {
+        padding: 20px;
+        font-size: 2rem;
+    }
+    form > textarea {
+        padding: 1rem;
+        font-size: 2rem;
+    }
+}
+ */
+
+
+
+/* 
+@media (max-width:480px) {
+    Home
+   #welcome{
+    width: 95%;
+    margin:auto;
+   }
+}  */
