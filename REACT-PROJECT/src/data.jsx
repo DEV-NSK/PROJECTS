@@ -1,6 +1,8 @@
-const roles = [
+const Data =  {
+    "roles" :[
     {
         // "Full Stack Developer" role
+  "id":1,
   "name": "Full Stack Developer",
   "description": "Master frontend, backend, and deployment using the MERN stack.",
   "skills_required": ["HTML", "CSS", "React", "Node.js", "MongoDB", "Express"],
@@ -49,6 +51,7 @@ const roles = [
 },
 // "Python Developer"
 {
+  "id":2,
   "name": "Python Developer",
   "description": "Use Python for backend development, automation, and web apps.",
   "skills_required": ["Python", "OOP", "File Handling", "APIs", "Flask", "Django"],
@@ -77,6 +80,7 @@ const roles = [
 },
 // "Java Developer"
 {
+  "id":3,
   "name": "Java Developer",
   "description": "Design and build scalable backend systems using Java and Spring.",
   "skills_required": ["Java", "OOP", "Collections", "Spring Boot", "JPA", "REST APIs"],
@@ -100,6 +104,7 @@ const roles = [
 },
 // "Data Scientist"
 {
+  "id":4,
   "name": "Data Scientist",
   "description": "Analyze data and build ML models to extract insights and predictions.",
   "skills_required": ["Python", "NumPy", "Pandas", "Matplotlib", "Scikit-Learn", "Deep Learning"],
@@ -128,6 +133,7 @@ const roles = [
 },
 // "AI Developer"
 {
+  "id":5,
   "name": "AI Developer",
   "description": "Develop intelligent systems using machine learning and deep learning.",
   "skills_required": ["Python", "ML", "Deep Learning", "NLP", "TensorFlow", "Keras"],
@@ -156,6 +162,7 @@ const roles = [
 },
 // "Machine Learning Engineer"
 {
+  "id":6,
   "name": "Machine Learning Engineer",
   "description": "Build production-ready ML pipelines and deploy models at scale.",
   "skills_required": ["Python", "ML", "Data processing", "Model Evaluation", "TensorFlow", "MLOps"],
@@ -179,6 +186,7 @@ const roles = [
 },
 // "Data Analyst"
 {
+  "id":7,
   "name": "Data Analyst",
   "description": "Collect, clean, analyze, and visualize data to support business decisions.",
   "skills_required": ["Excel", "SQL", "Python", "Pandas", "Power BI", "Tableau"],
@@ -202,6 +210,7 @@ const roles = [
 },
 // "Cloud Engineer"
 {
+  "id":8,
   "name": "Cloud Engineer",
   "description": "Design and manage cloud infrastructure using AWS, Azure, or GCP.",
   "skills_required": ["AWS", "Azure", "Linux", "Networking", "CI/CD", "Terraform"],
@@ -225,6 +234,7 @@ const roles = [
 },
 // "DevOps Engineer"
 {
+  "id":9,
   "name": "DevOps Engineer",
   "description": "Automate infrastructure, CI/CD pipelines, and software delivery lifecycle.",
   "skills_required": ["Linux", "Git", "Docker", "Kubernetes", "CI/CD", "Jenkins"],
@@ -253,6 +263,7 @@ const roles = [
 },
 // "Cybersecurity Analyst"
 {
+  "id":10,
   "name": "Cybersecurity Analyst",
   "description": "Protect systems and networks from security breaches and threats.",
   "skills_required": ["Networking", "Linux", "Firewalls", "Ethical Hacking", "OWASP", "SIEM"],
@@ -276,6 +287,7 @@ const roles = [
 },
 // "Blockchain Developer"
 {
+  "id":11,
   "name": "Blockchain Developer",
   "description": "Develop decentralized apps (dApps) and smart contracts on blockchain networks.",
   "skills_required": ["Solidity", "Ethereum", "Smart .Con", "Web3.js", "Cryptography", "Truffle"],
@@ -299,6 +311,7 @@ const roles = [
 },
 // "Frontend Developer"
 {
+  "id":12,
   "name": "Frontend Developer",
   "description": "Build user-friendly web interfaces using modern frontend technologies.",
   "skills_required": ["HTML", "CSS", "JavaScript", "React", "TypeScript", "Resp. Design"],
@@ -342,6 +355,7 @@ const roles = [
 },
 // "Backend Developer"
 {
+  "id":13,
   "name": "Backend Developer",
   "description": "Develop server-side applications, manage databases, and build APIs.",
   "skills_required": ["Node.js", "Express", "MongoDB", "SQL", "Authentication", "REST APIs"],
@@ -365,6 +379,7 @@ const roles = [
 },
 // "Mobile App Developer"
 {
+  "id":14,
   "name": "Mobile App Developer",
   "description": "Build native and cross-platform mobile applications.",
   "skills_required": ["Dart", "Flutter", "React Native", "Firebase", "APIs", "UI/UX"],
@@ -388,6 +403,7 @@ const roles = [
 },
 // "Flutter Developer"
 {
+  "id":15,
   "name": "Flutter Developer",
   "description": "Develop beautiful cross-platform mobile apps using Dart and Flutter.",
   "skills_required": ["Dart", "Flutter", "State .Mng", "APIs", "Firebase", "Animations"],
@@ -411,6 +427,7 @@ const roles = [
 },
 // "React Native Developer"
 {
+  "id":16,
   "name": "React Native Developer",
   "description": "Build cross-platform mobile apps using JavaScript and React Native.",
   "skills_required": ["JavaScript", "React Native", "APIs", "Redux", "Navigation", "UI Comps"],
@@ -434,6 +451,7 @@ const roles = [
 },
 // "QA Engineer"
 {
+  "id":17,
   "name": "QA Engineer",
   "description": "Ensure software quality through manual and automated testing.",
   "skills_required": ["Manual Testing", "Automation", "Selenium", "Test Cases", "Jest", "Postman"],
@@ -457,6 +475,7 @@ const roles = [
 },
 // "UI/UX Designer"
 {
+  "id":18,
   "name": "UI/UX Designer",
   "description": "Design intuitive, user-friendly, and attractive interfaces for applications.",
   "skills_required": ["Figma", "Wireframing", "Prototyping", "User Research", "Design Sys", "Accessibility"],
@@ -480,6 +499,7 @@ const roles = [
 },
 // "Game Developer"
 {
+  "id":19,
   "name": "Game Developer",
   "description": "Create 2D/3D games using engines like Unity or Unreal.",
   "skills_required": ["C#", "Unity", "Game Physics", "3D Modeling", "Animation", "Shaders"],
@@ -503,6 +523,7 @@ const roles = [
 },
 // "AR/VR Developer"
 {
+  "id":20,
   "name": "AR/VR Developer",
   "description": "Create immersive augmented and virtual reality experiences.",
   "skills_required": ["Unity", "C#", "3D Modeling", "VR SDKs", "ARKit", "ARCore"],
@@ -526,6 +547,7 @@ const roles = [
 },
 // "Web3 Developer"
 {
+  "id":21,
   "name": "Web3 Developer",
   "description": "Develop decentralized applications (dApps) using blockchain technologies.",
   "skills_required": ["Solidity", "Ethereum", "Hardhat", "Web3.js", "IPFS", "Smart .Con"],
@@ -549,6 +571,7 @@ const roles = [
 },
 // "Technical Product Manager"
 {
+  "id":22,
   "name": "Technical Product Manager",
   "description": "Bridge business and technical teams to deliver high-impact software products.",
   "skills_required": ["Agile", "Scrum", "User Stories", "JIRA", "Market Research", "Product mapping"],
@@ -572,6 +595,7 @@ const roles = [
 },
 // "Big Data Engineer"
 {
+  "id":23,
   "name": "Big Data Engineer",
   "description": "Design and build systems to process large-scale data using distributed computing.",
   "skills_required": ["Hadoop", "Spark", "Kafka", "Scala", "Hive", "ETL"],
@@ -595,6 +619,7 @@ const roles = [
 },
 // "IoT Developer"
 {
+  "id":24,
   "name": "IoT Developer",
   "description": "Build smart, connected devices that interact with the physical world.",
   "skills_required": ["Microcontrollers", "C/C++", "Sensors", "MQTT", "Raspberry Pi", "IoT Protocols"],
@@ -618,6 +643,7 @@ const roles = [
 },
 // "Embedded Systems Developer"
 {
+  "id":25,
   "name": "Embedded Systems Developer",
   "description": "Design software for devices with limited computing power (e.g., washing machines, cars).",
   "skills_required": ["C", "C++", "Microcontrollers", "RTOS", "Assembly", "Emb. Linux"],
@@ -639,6 +665,7 @@ const roles = [
   },
   "estimated_days": 150
 }
-];
+]
+};
 
-export default roles;
+export default Data;

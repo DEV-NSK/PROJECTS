@@ -1,15 +1,17 @@
 import React from 'react'
 import "./roadmap.css"
 import Data from "/src/data.jsx"
+import { useNavigate } from 'react-router-dom'
 
 const Roadmap = () => {
+  const navigate = useNavigate();
   return (
     <div className='w-full p-5 pt-0'>
       <h2 className="w-full text-center text-xl pt-2 pb-4 md:pt-0 md:pb-4">
         Top Career Roles
       </h2>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-20 p-2 w-full text-center'>
-        {Data.map((role, index) => {
+        {Data.roles.map((role, index) => {
           return (
             <div className='cards'>
               <h1 className='text-center text-orange-600 font-semibold'>{role.name}</h1>
@@ -23,7 +25,7 @@ const Roadmap = () => {
               })}
               </div>
               <div className='pt-5'>
-                <a href="" id='knowmore'>know more</a>
+                <span id='knowmore' onClick={() => navigate(`roles/${role.id}`)}>know more</span>
               </div>
             </div>
           )

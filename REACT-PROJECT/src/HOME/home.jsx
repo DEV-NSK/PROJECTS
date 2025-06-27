@@ -437,25 +437,25 @@ const Home = () => {
         </div>
       </div>
       {/* ABOUT SECTION */}
-      <div>
-        <h1 className="pb-5 hidden md:flex gap-3 text-base/6 mt-10 p-10">ABOUT <span id="brand">CAREERA</span></h1>
-        <div className="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-5 hidden md:grid">
-        <div className="card">
-          <h2 className="pb-3 text-orange-600"> Why choose CAREERA ?</h2>
-          <p className="text-sm/6">
-            ✅ Beginner to advanced learning paths – Clear guidance at every stage. <br />
-            ✅ Curated resources – Handpicked YouTube videos, blogs and official  docs. <br />
-            ✅ Salary & duration estimates – Know what to expect at every level. <br />
-            ✅ Career-aligned guidance – Learn what top companies expect.
+      <div className="m-5 p-2 md:p-0 md:m-0">
+        <h1 className="pb-5 md:flex gap-3 text-base/6 mt-5 md:mt-10 md:p-8 md:pl-15">ABOUT <span id="brand">CAREERA</span></h1>
+        <div className="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-5">
+        <div className="card md:w-5/6" id="aboutcard">
+          <h2 className="pb-3 text-orange-600 md:pl-6"> Why choose CAREERA ?</h2>
+          <p className="text-sm/6 md:pl-10">
+            ✔ Beginner to advanced learning paths <br className="flex md:hidden"/> – Clear guidance at every stage. <br />
+            ✔ Curated resources <br className="flex md:hidden"/> – Handpicked YouTube videos, blogs, docs. <br />
+            ✔ Salary & duration estimates <br className="flex md:hidden"/> – Know what to expect at every level. <br />
+            ✔ Career-aligned guidance <br className="flex md:hidden"/> – Learn what top companies expect.
           </p>
         </div>
-        <div className="card">
-          <h2 className="pb-3 text-orange-600"> How CAREERA works ?</h2>
-          <p className="text-sm/6">
-            🧭 Choose a roadmap – Select from 25+ tech career tracks. <br/>
-            📚 Follow the path – Learn with guided sections and resources. <br/>
-            ✅ Mark your progress – Save your journey step-by-step. <br/>
-            🏆 Achieve your goal – Gain skills and confidence to get hired.
+        <div className="card md:w-5/6" id="aboutcard">
+          <h2 className="pb-3 text-orange-600 md:pl-6"> How CAREERA works ?</h2>
+          <p className="text-sm/6 md:pl-10">
+            ✔ Choose a roadmap <br className="flex md:hidden"/> – Select from 25+ tech career tracks. <br/>
+            ✔ Follow the path <br className="flex md:hidden"/> – Learn with guided sections and resources. <br/>
+            ✔ Mark your progress <br className="flex md:hidden"/> – Save your journey step-by-step. <br/>
+            ✔ Achieve your goal <br className="flex md:hidden"/> – Gain skills and confidence to get hired.
           </p>
         </div>
       </div>
