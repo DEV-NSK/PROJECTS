@@ -64,12 +64,18 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-end hidden md:flex pr-5" id="nav-links-effect">
-          {!user && <Link to="/signup">SignUp</Link>}
-        </div>
-        <div className="navbar-end hidden md:flex pr-5" id="nav-links-effect">
+          {!user && 
+          <>
+          <Link to="/signup">SignUp</Link>
+          </>
+          }
+          {user && 
+          <>
           <a href="" onClick={handleLogout}>
             Logout
           </a>
+          </>
+          }
         </div>
 
         {/* FOR MOBILE */}
