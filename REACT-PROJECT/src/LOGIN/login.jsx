@@ -1,3 +1,6 @@
+
+
+
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
@@ -21,58 +24,71 @@ const Login = () => {
         localStorage.setItem('userloginrole', JSON.stringify({ email, role }));
       }
 
-      navigate("/"); // Redirect to home page ("/")
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white">
-      <form
-        onSubmit={handleLogin}
-        className="bg-white p-8 md:p-10 rounded-3xl shadow-xl w-full max-w-sm border border-gray-200"
-      >
-        <h2 className="text-2xl font-bold text-center text-black mb-6 drop-shadow-sm">
-          Welcome Back 💫
-        </h2>
+    <div className="flex items-center justify-center min-h-screen bg-base-100 p-4">
+      <div className="card bg-base-100 shadow-xl w-full max-w-md">
+        <div className="card-body">
+          <h2 className="card-title justify-center text-2xl font-bold text-primary mb-2">
+            Welcome Back 💫
+          </h2>
+          <p className="text-center text-neutral mb-6">Sign in to your account</p>
+          
+          <form onSubmit={handleLogin}>
+            <div className="form-control mb-4">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="input input-bordered input-primary"
+              />
+            </div>
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="w-full px-4 py-3 mb-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-100 bg-white placeholder:text-gray-400 text-black"
-        />
+            <div className="form-control mb-4">
+              <label className="label">
+                <span className="label-text">Password</span>
+              </label>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="input input-bordered input-primary"
+              />
+            </div>
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          className="w-full px-4 py-3 mb-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-100 bg-white placeholder:text-gray-400 text-black"
-        />
+            {error && (
+              <div className="alert alert-error mb-4">
+                <span>{error}</span>
+              </div>
+            )}
 
-        <button
-          type="submit"
-          className="w-full bg-gray-100 hover:bg-gray-200 text-black py-2 rounded-xl font-semibold transition duration-300"
-        >
-          Login
-        </button>
+            <div className="form-control mt-6">
+              <button type="submit" className="btn btn-primary">
+                Login
+              </button>
+            </div>
+          </form>
 
-        <p className="text-sm mt-5 text-center text-gray-500">
-          Don&apos;t have an account?{' '}
-          <Link to="/signup" className="text-black font-medium hover:underline">
-            Sign up
-          </Link>
-        </p>
-
-        {error && (
-          <p className="mt-4 text-center text-red-400 text-sm">{error}</p>
-        )}
-      </form>
+          <p className="text-center mt-4 text-neutral">
+            Don't have an account?{' '}
+            <Link to="/signup" className="text-primary hover:underline font-medium">
+              Sign up
+            </Link>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

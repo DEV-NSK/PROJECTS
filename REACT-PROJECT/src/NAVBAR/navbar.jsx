@@ -1,11 +1,14 @@
+
+
 import React, { useEffect, useState } from "react";
-import "./navbar.css";
 import { Link } from "react-router-dom";
 import { auth } from "/src/firebase/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   // Listen to Firebase Auth state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -17,154 +20,259 @@ const Navbar = () => {
   const handleLogout = async () => {
     await signOut(auth);
     setUser(null);
+    setMobileMenuOpen(false);
   };
 
-  // Set dark theme only on mobile devices
-  useEffect(() => {
-    if (window.innerWidth < 600) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-    }
-  }, []);
-  const handletheme = () => {
-    const themeController = document.querySelector(".theme-controller");
-    if (themeController.checked) {
-      document.documentElement.setAttribute("data-theme", "light");
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
+
   return (
-    <div>
-      <div className="navbar shadow-sm w-full">
-        <div className="w-full">
-          <h1 className="font-mono text-xl pl-5" id="nav-logo">
+    <div className="navbar bg-base-100 shadow-sm px-4 md:px-8 py-3 relative">
+      {/* Logo */}
+      <div className="flex-1">
+        <Link to="/" className="text-2xl font-bold">
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             CAREERA
-          </h1>
-        </div>
-        <div>
-          <div
-            className="w-full items-center justify-end gap-10 px-0 md:px-1 hidden md:flex"
-            id="nav-links-effect"
+          </span>
+        </Link>
+      </div>
+      
+      {/* Desktop Navigation */}
+      <div className="hidden md:flex flex-none items-center justify-center">
+        <div className="flex items-center space-x-8 mr-6">
+          <Link 
+            to="/" 
+            className="text-neutral hover:text-primary font-medium transition-colors duration-200"
           >
-            <Link to="/">Home</Link>
-            <Link to="/roadmaps">Roadmaps</Link>
-            <input
-              type="text"
-              placeholder="Search . . ."
-              className="input input-bordered w-20 md:w-25 focus:outline-0"
-            />
+            Home
+          </Link>
+          <Link 
+            to="/roadmaps" 
+            className="text-neutral hover:text-primary font-medium transition-colors duration-200"
+          >
+            Roadmaps
+          </Link>
+          {/* <Link 
+            to="/about" 
+            className="text-neutral hover:text-primary font-medium transition-colors duration-200"
+          >
+            About
+          </Link> */}
+          
+          {user && (
+            <>
+              <Link 
+                to="/dashboard" 
+                className="text-neutral hover:text-primary font-medium transition-colors duration-200"
+              >
+                Dashboard
+              </Link>
+              <Link 
+                to="/profile" 
+                className="text-neutral hover:text-primary font-medium transition-colors duration-200"
+              >
+                Profile
+              </Link>
+            </>
+          )}
+        </div>
+        
+        {/* Search Bar */}
+        <div className="relative mr-6">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="input input-bordered input-sm bg-base-200 border-base-300 pl-10 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent w-48"
+          />
+          <svg 
+            className="absolute left-3 top-2.5 h-4 w-4 text-neutral/70" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth="2" 
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+        </div>
+        
+        {/* Auth Buttons */}
+        <div className="flex items-center space-x-4">
+          {!user ? (
+            <>
+              <Link 
+                to="/login" 
+                className="text-primary hover:text-primary-focus font-medium transition-colors duration-200"
+              >
+                Login
+              </Link>
+              <Link 
+                to="/signup" 
+                className="btn btn-primary text-white font-medium px-4 py-2 rounded-full transition-colors duration-200 shadow-sm"
+              >
+                Sign Up
+              </Link>
+            </>
+          ) : (
+            <button 
+              onClick={handleLogout} 
+              className="text-neutral hover:text-primary font-medium transition-colors duration-200"
+            >
+              Logout
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Mobile Navigation Toggle */}
+      <div className="md:hidden flex-none">
+        <button 
+          onClick={toggleMobileMenu}
+          className="btn btn-ghost btn-circle"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? (
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-6 w-6" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M6 18L18 6M6 6l12 12" 
+              />
+            </svg>
+          ) : (
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-6 w-6" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M4 6h16M4 12h16M4 18h16" 
+              />
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      {mobileMenuOpen && (
+        <div className="absolute top-full left-0 right-0 bg-base-100 shadow-lg border-t border-base-200 md:hidden z-50">
+          <div className="px-4 py-3 space-y-2">
+            <Link 
+              to="/" 
+              className="block py-3 px-4 text-neutral hover:text-primary hover:bg-base-200 rounded-lg transition-colors duration-200 font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link 
+              to="/roadmaps" 
+              className="block py-3 px-4 text-neutral hover:text-primary hover:bg-base-200 rounded-lg transition-colors duration-200 font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Roadmaps
+            </Link>
+            {/* <Link 
+              to="/about" 
+              className="block py-3 px-4 text-neutral hover:text-primary hover:bg-base-200 rounded-lg transition-colors duration-200 font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              About
+            </Link> */}
+            
             {user && (
               <>
-                <Link to="/dashboard">Dashboard</Link>
-                <Link to="/profile">Profile</Link>
+                <Link 
+                  to="/dashboard" 
+                  className="block py-3 px-4 text-neutral hover:text-primary hover:bg-base-200 rounded-lg transition-colors duration-200 font-medium"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Dashboard
+                </Link>
+                <Link 
+                  to="/profile" 
+                  className="block py-3 px-4 text-neutral hover:text-primary hover:bg-base-200 rounded-lg transition-colors duration-200 font-medium"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Profile
+                </Link>
               </>
             )}
-          </div>
-        </div>
-        <div className="navbar-end hidden md:flex pr-5" id="nav-links-effect">
-          {!user && 
-          <>
-          <Link to="/signup">SignUp</Link>
-          </>
-          }
-          {user && 
-          <>
-          <a href="" onClick={handleLogout}>
-            Logout
-          </a>
-          </>
-          }
-        </div>
-
-        {/* FOR MOBILE */}
-        <div className="flex md:hidden w-full navbar-end">
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle "
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-15 w-40"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {" "}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1"
-                  d="M4 6h16M4 12h16M4 18h7"
-                />{" "}
-              </svg>
+            
+            <div className="border-t border-base-200 my-2"></div>
+            
+            <div className="px-4 py-2">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="input input-bordered w-full bg-base-200 border-base-300 pl-10 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                />
+                <svg 
+                  className="absolute left-3 top-2.5 h-4 w-4 text-neutral/70" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth="2" 
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </div>
             </div>
-            <ul
-              tabIndex={0}
-              className="flex flex-col gap-0 dropdown-content rounded-box z-1 w-full"
-              id="mobile-navbar-links"
-            >
-              <li className="text-start">
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/roadmaps">Maps</Link>
-              </li>
-              {!user && (
-                <li>
-                  <Link to="/signup">Signup</Link>
-                </li>
-              )}
-              {user && (
+            
+            <div className="border-t border-base-200 my-2"></div>
+            
+            <div className="px-4 py-2 space-y-2">
+              {!user ? (
                 <>
-                  <li>
-                    <Link to="/dashboard">DB</Link>
-                  </li>
-                  <li>
-                    <Link to="/profile">Profile</Link>
-                  </li>
-                  <li>
-                    <a href="#" onClick={handleLogout}>
-                      Logout
-                    </a>
-                  </li>
+                  <Link 
+                    to="/login" 
+                    className="block py-3 px-4 text-primary hover:text-primary-focus hover:bg-base-200 rounded-lg transition-colors duration-200 font-medium text-center"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                  <Link 
+                    to="/signup" 
+                    className="block py-3 px-4 btn btn-primary text-white rounded-lg transition-colors duration-200 font-medium text-center"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Sign Up
+                  </Link>
                 </>
+              ) : (
+                <button 
+                  onClick={handleLogout}
+                  className="block w-full py-3 px-4 text-neutral hover:text-primary hover:bg-base-200 rounded-lg transition-colors duration-200 font-medium text-center"
+                >
+                  Logout
+                </button>
               )}
-            </ul>
+            </div>
           </div>
         </div>
-      </div>
-      {/* Theme Switcher */}
-      <div className="navbar-end w-full flex justify-end p-3 pr-8 hidden md:flex">
-        <label className="swap swap-rotate">
-          {/* this hidden checkbox controls the state */}
-          <input
-            type="checkbox"
-            className="theme-controller"
-            value="light"
-            onClick={handletheme}
-          />
-          {/* sun icon */}
-          <svg
-            className="swap-on h-7 w-7 fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-          >
-            <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
-          </svg>
-          {/* moon icon */}
-          <svg
-            className="swap-off h-7 w-7 fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-          >
-            <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
-          </svg>
-        </label>
-      </div>
+      )}
     </div>
   );
 };

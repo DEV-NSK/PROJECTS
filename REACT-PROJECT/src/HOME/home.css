@@ -1,55 +1,43 @@
-.card > a:hover {
-    color: orangered;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Inter', sans-serif;
 }
 
-.card {
-    padding: 3rem;
-    cursor: pointer;
-    box-shadow: 0 0 10px grey;
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-#role-marquee {
-    padding: 0.5rem 0;
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  display: inline-block;
 }
 
-#brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg,#ff00d2,#fed90f,#027ac0,#ff0000,#fed90f,#09f1b8);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 300% 300%;
-    animation: gradient 2s linear infinite; 
-}
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+/* Custom utility classes */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-#contact-logo > a > img {
-    border-radius: 50%;
-    width: 50%;
-    transition: 0.5s linear;
+/* Role card hover effects */
+.role-card {
+  transition: all 0.3s ease;
 }
 
-#contact-logo > a > img:hover {
-    box-shadow: 0 0 10px white;
-    padding: 0.2rem;
+.role-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
 }
 
-#linkedin {
-    width: 55% !important;
+/* Social media icons */
+.social-icon {
+  transition: all 0.3s ease;
 }
 
-#aboutcard {
-    padding: 1rem;
-    /* text-align: justify; */
+.social-icon:hover {
+  transform: scale(1.1);
 }

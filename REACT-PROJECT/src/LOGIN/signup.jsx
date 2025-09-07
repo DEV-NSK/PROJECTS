@@ -1,3 +1,6 @@
+
+
+
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
@@ -9,94 +12,133 @@ const Signup = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [role, setRole] = useState('');
+    const [role, setRole] = useState('user'); // Set default role
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleSignup = async (e) => {
         e.preventDefault();
         setError('');
-
-        if (!role) {
-            setError('Please select a role.');
-            return;
-        }
+        setLoading(true);
 
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
 
-            // Use role as collection name directly
-            const docRef = doc(db, role, userCredential.user.uid);
-            await setDoc(docRef, {
+            // Create user document in Firestore
+            const userDoc = {
                 name,
-                email
-                // role
-            });
+                email,
+                role,
+                createdAt: new Date(),
+                uid: user.uid
+            };
+
+            // Use the 'users' collection instead of role-based collections
+            await setDoc(doc(db, "users", user.uid), userDoc);
 
             alert("Signup successful");
-            setName('');
-            setEmail('');
-            setPassword('');
-            setRole('');
             navigate('/login');
         } catch (error) {
+            console.error("Signup error:", error);
             setError(error.message.replace("Firebase: ", ""));
-            console.log(error);
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-white">
-            <form
-                onSubmit={handleSignup}
-                className="bg-white p-8 rounded-xl shadow-lg w-full max-w-lg border border-gray-200"
-            >
-                <h2 className="text-2xl font-bold mb-6 text-center text-black">Create Account</h2>
+        <div className="flex items-center justify-center min-h-screen bg-base-100 p-4">
+            <div className="card bg-base-100 shadow-xl w-full max-w-md">
+                <div className="card-body">
+                    <h2 className="card-title justify-center text-2xl font-bold text-primary mb-2">
+                        Create Account
+                    </h2>
+                    <p className="text-center text-neutral mb-6">Join us to start your career journey</p>
+                    
+                    <form onSubmit={handleSignup}>
+                        <div className="form-control mb-4">
+                            <label className="label">
+                                <span className="label-text">Full Name</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Enter your name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                                className="input input-bordered input-primary"
+                            />
+                        </div>
 
-                <input
-                    type="text"
-                    placeholder="Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                    className="w-full px-4 py-3 mb-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 bg-white placeholder:text-gray-400 text-black"
-                />
+                        <div className="form-control mb-4">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                className="input input-bordered input-primary"
+                            />
+                        </div>
 
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full px-4 py-3 mb-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 bg-white placeholder:text-gray-400 text-black"
-                />
+                        <div className="form-control mb-4">
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                            </label>
+                            <input
+                                type="password"
+                                placeholder="Create a password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                                className="input input-bordered input-primary"
+                                minLength={6}
+                            />
+                        </div>
 
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className="w-full px-4 py-3 mb-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 bg-white placeholder:text-gray-400 text-black"
-                />
+                        <div className="form-control mb-4">
+                            <label className="label">
+                                <span className="label-text">Account Type</span>
+                            </label>
+                            <select 
+                                value={role} 
+                                onChange={(e) => setRole(e.target.value)}
+                                className="select select-bordered select-primary"
+                            >
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
 
-                <button
-                    type="submit"
-                    className="w-full bg-gray-100 hover:bg-gray-200 text-black py-2 rounded-lg font-semibold transition duration-300"
-                >
-                    Sign Up
-                </button>
+                        {error && (
+                            <div className="alert alert-error mb-4">
+                                <span>{error}</span>
+                            </div>
+                        )}
 
-                <p className="text-sm mt-5 text-center text-gray-700">
-                    Already have an account?{' '}
-                    <Link to="/login" className="text-black font-medium hover:underline">
-                        Login
-                    </Link>
-                </p>
+                        <div className="form-control mt-6">
+                            <button 
+                                type="submit" 
+                                className="btn btn-primary"
+                                disabled={loading}
+                            >
+                                {loading ? 'Creating Account...' : 'Sign Up'}
+                            </button>
+                        </div>
+                    </form>
 
-                {error && (
-                    <p className="mt-4 text-center text-red-500">{error}</p>
-                )}
-            </form>
+                    <p className="text-center mt-4 text-neutral">
+                        Already have an account?{' '}
+                        <Link to="/login" className="text-primary hover:underline font-medium">
+                            Login
+                        </Link>
+                    </p>
+                </div>
+            </div>
         </div>
     );
 };
